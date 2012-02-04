@@ -107,6 +107,8 @@ header {
         padding: 6px 12px;
         margin-right: 6px;
         box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
 
         box-shadow: inset 3px 3px 5px rgba(255,255,255,0.4),
                     3px 3px 5px 0px #aaa;
