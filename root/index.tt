@@ -1,0 +1,12 @@
+<section id="claims">
+    [% FOREACH post IN posts %]
+    <article class="unverified">
+        <q>[% post.claim %]</q>
+        <cite>
+            <a href="/bla/bla/[% post.cite.id %]/">
+            [% post.cite.name %]
+            </a>
+        </cite>
+    </article>
+    [% END %]
+</section>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Citation Needed</title>
+        <link rel="stylesheet" href="/static/css/reset.css">
+        <link rel="stylesheet" href="/static/css/960.css">
+    </head>
+
+    <body>
+        <nav>
+            <div>
+                <ul>
+                    <li>
+                        <span>Home</span>
+                        <img src="/static/images/icons/nav/home.png" title="Home"
+                        width="32" height="32">
+                    </li>
+                    <li>
+                        <span>About</span>
+                        <img src="/static/images/icons/nav/about.png" title="About"
+                        width="32" height="32">
+                    </li>
+                    <li>
+                        <span>Contribute</span>
+                        <img src="/static/images/icons/nav/contribute.png"
+                        title="Contribute" width="32" height="32">
+                    </li>
+                </ul>
+                <h1>Subjects</h1>
+                <ul>
+                    <li>
+                        <span>Science</span>
+                        <img src="/static/images/icons/nav/science.png" title="Science"
+                        width="32" height="32">
+                    </li>
+                    <li>
+                        <span>Technology</span>
+                        <img src="images/icons/nav/technology.png"
+                        title="Technology" width="32" height="32">
+                    </li>
+                    <li>
+                        <span>Health</span>
+                        <img src="images/icons/nav/health.png" title="Health"
+                        width="32" height="32">
+                    </li>
+                    <li>
+                        <span>People</span>
+                        <img src="images/icons/nav/people.png" title="People"
+                        width="32" height="32">
+                    </li>
+                </ul>
+                <h1>Culprits</h1>
+                <ul>
+                    <li>
+                        <span>Publications</span>
+                        <img src="images/icons/nav/publications.png"
+                            title="Publications" width="32" height="32">
+                    </li>
+                    <li>
+                        <span>Public<br/>Figures</span>
+                        <img src="images/icons/nav/public-figures.png" 
+                            title="Public Figures" width="32" height="32">
+                    </li>
+                </ul>
+                <h1>Extras</h1>
+                <ul>
+                    <li>
+                        <span>Sources</span>
+                        <img src="images/icons/nav/sources.png" title="Sources"
+                        width="32" height="32">
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <header>
+            <h1>[<span>citation needed</span>]</h1>
+            <h2>a healthy dose of cynicism</h2>
+        </header>
+        [% IF show_legend %]
+            <section id="legend">
+                <article class="unverified">
+                    <q>Unverified</q>
+                </article>
+                <article class="truth">
+                    <q>Truth</q>
+                </article>
+                <article class="lie">
+                    <q>Lie</q>
+                </article>
+                <article class="dubious">
+                    <q>Dubious</q>
+                </article>
+            </section>
+        [% END %]
+
+        [% content %]
+    </body>
+</html>

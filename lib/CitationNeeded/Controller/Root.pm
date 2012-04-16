@@ -1,6 +1,7 @@
 package CitationNeeded::Controller::Root;
 use Moose;
 use namespace::autoclean;
+use 5.010;
 
 BEGIN { extends 'Catalyst::Controller' }
 
@@ -29,8 +30,10 @@ The root page (/)
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
 
-    # Hello World
-    $c->response->body( $c->welcome_message );
+    $c->stash->{posts} = $c->forward('/posts/get', [qw/all/]);
+
+    $c->stash->{show_legend} = 1;
+    $c->forward( $c->view('Web') );
 }
 
 =head2 default
