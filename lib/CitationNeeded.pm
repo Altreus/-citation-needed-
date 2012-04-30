@@ -20,20 +20,14 @@ use Catalyst qw/
     -Debug
     ConfigLoader
     Static::Simple
+    Authentication
+    Authorization::Roles
+    Authorization::ACL
 /;
 
 extends 'Catalyst';
 
 our $VERSION = '0.01';
-
-# Configure the application.
-#
-# Note that settings in citationneeded.conf (or other external
-# configuration file that you set up manually) take precedence
-# over this when using ConfigLoader. Thus configuration
-# details given here can function as a default configuration,
-# with an external configuration file acting as an override for
-# local deployment.
 
 __PACKAGE__->config(
     name => 'CitationNeeded',
@@ -45,7 +39,13 @@ __PACKAGE__->config(
 # Start the application
 __PACKAGE__->setup();
 
+__PACKAGE__->deny_access_unless(
+    '/admin' => [qw/ admin /]
+);
 
+__PACKAGE__->allow_access(
+    '/admin/login'
+);
 =head1 NAME
 
 CitationNeeded - Catalyst based application

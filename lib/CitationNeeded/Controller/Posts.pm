@@ -21,7 +21,11 @@ Show all posts
 sub get :Private {
     my ( $self, $c ) = @_;
 
-    my $posts = $c->model('MongoDB')->db->get_collection('posts')->find;
+    my $posts = $c->model('MongoDB')->db
+        ->get_collection('posts')
+        ->find({
+            _id => MongoDB::OID->new(value => "4f8c9d4231458dae3b38570a")
+        });
 
     return [$posts->all];
     return [

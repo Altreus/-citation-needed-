@@ -1,0 +1,17 @@
+<form class="form-horizontal" action="" method="post">
+  <fieldset>
+    <div class="control-group">
+      <label for="email" class="control-label">Email</label>
+      <div class="controls">
+        <input type="text" id="email" name="email"/>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label for="password" class="control-label">Password</label>
+      <div class="controls">
+        <input type="password" id="password" name="password"/>
+      </div>
+    </div>
+  </fieldset>
+</form>
