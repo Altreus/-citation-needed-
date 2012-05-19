@@ -19,11 +19,21 @@ Index page!1
 =cut
 
 sub index :Path('/admin') {
+    my ($self, $c) = @_;
+
+    $c->stash->{template} = 'admin/index.tt';
 }
 
 sub login :Local {
     my ($self, $c) = @_;
 
+    my $param = $c->req->body_params;
+    if (%$param) {
+        $c->authenticate({ email => $param->{email},
+                           password => $param->{password} })
+            and return $c->res->redirect('/admin');
+        $c->stash->{error_msg} = "Email or password incorrect";
+    }
     $c->stash->{no_nav} = 1;
     $c->stash->{template} = 'admin/login.tt';
 }

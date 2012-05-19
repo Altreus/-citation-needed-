@@ -13,5 +13,11 @@
         <input type="password" id="password" name="password"/>
       </div>
     </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <input type="submit" id="submit" name="login" value="Login" class="btn btn-primary"/>
+      </div>
+    </div>
   </fieldset>
 </form>
