@@ -1,0 +1,19 @@
+<h1>Claims</h1>
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>Claim</th>
+        <th>Claimant</th>
+        <th>Categories</th>
+    </tr>
+    [% FOREACH claim IN claims %]
+        <tr>
+            <td>[% claim.claim %]</td>
+            <td>[% claim.cite.name %]</td>
+            <td>
+                [% FOREACH category IN claim.categories %]
+                    <span class="label">[% category %]</span>
+                [% END %]
+            </td>
+        </tr>
+    [% END %]
+</table>
