@@ -21,7 +21,7 @@ Index page!1
 sub index :Path('/admin') {
     my ($self, $c) = @_;
 
-    $c->stash->{template} = 'admin/index.tt';
+    $c->res->redirect('/admin/claims');
 }
 
 sub login :Local {
