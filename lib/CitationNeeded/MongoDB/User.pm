@@ -1,4 +1,4 @@
-package CitationNeeded::Model::MongoDB::User;
+package CitationNeeded::MongoDB::User;
 
 use MongoDBx::Class::Moose; 
 use MooseX::Types::Authen::Passphrase qw(Passphrase);
