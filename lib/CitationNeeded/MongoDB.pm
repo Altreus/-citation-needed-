@@ -1,10 +1,6 @@
 package CitationNeeded::MongoDB;
 use Moose;
-<<<<<<< HEAD
-use MongoDB;
-=======
-use MongoDBx::Class;
->>>>>>> 58a2005... Fix Mongo model thanks to Khisanth
+#use MongoDBx::Class;
 
 has connection => (
     is => 'ro',
