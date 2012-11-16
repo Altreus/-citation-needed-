@@ -1,7 +1,7 @@
 package CitationNeeded::MongoDB::User;
 
 use Mongoose::Class;
-use MooseX::Types::Authen::Passphrase qw(Passphrase);
+use Authen::Passphrase;
 use namespace::autoclean;
 
 extends 'Catalyst::Authentication::User';
@@ -18,10 +18,8 @@ has roles => (
 );
 
 has password => (
-    isa => Passphrase,
+    isa => 'Str',
     is => 'rw',
-    coerce => 1,
-    handles => { check_password => 'match' },
 );
 
 has name => (
@@ -50,6 +48,20 @@ my %catalyst_supports = (
 sub supports {
     shift;
     return all {exists $catalyst_supports{$_}} @_;
+}
+
+# Mongoose doesn't use new(), so can't coerce into a Passphrase.
+sub check_password {
+    my ($self, $pass) = @_;
+
+    use Data::Dumper;
+
+    my $ppr = index($self->password, '{') == 0
+            ? Authen::Passphrase->from_rfc2307($self->password)
+            : Authen::Passphrase->from_crypt($self->password);
+
+    print Dumper [$ppr->match($pass)];
+    return $ppr->match($pass);
 }
 
 __PACKAGE__->meta->make_immutable;
