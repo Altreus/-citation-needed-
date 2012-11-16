@@ -1,12 +1,14 @@
 package CitationNeeded::MongoDB::User;
 
-use MongoDBx::Class::Moose; 
+use Mongoose::Class;
 use MooseX::Types::Authen::Passphrase qw(Passphrase);
 use namespace::autoclean;
 
 extends 'Catalyst::Authentication::User';
 
-with 'MongoDBx::Class::Document';
+with 'Mongoose::Document' => {
+    -collection_name => 'users'
+};
 
 use List::MoreUtils qw(all);
 
@@ -22,10 +24,22 @@ has password => (
     handles => { check_password => 'match' },
 );
 
-has_many claims => (
-    isa => 'Claim',
+has name => (
+    isa => 'Str',
     is => 'ro',
 );
+
+has email => (
+    isa => 'Str',  # TODO: Email type
+    is => 'rw',
+);
+
+has screen_name => (
+    isa => 'Str',
+    is => 'rw',
+);
+
+has_many claims => 'Claim';
 
 no Moose;
 

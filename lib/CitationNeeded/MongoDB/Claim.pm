@@ -1,15 +1,11 @@
 package CitationNeeded::MongoDB::Claim;
 
-
-use MongoDBx::Class::Moose; 
+use Mongoose::Class;
 use namespace::autoclean;
 
-with 'MongoDBx::Class::Document';
+with 'Mongoose::Document';
 
-belongs_to user => (
-    is => 'ro',
-    isa => 'User',
-);
+belongs_to user => 'User';
 
 no Moose;
 __PACKAGE__->meta->make_immutable;
